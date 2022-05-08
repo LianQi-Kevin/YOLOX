@@ -219,3 +219,4 @@ events.out.tfevents*
 
 # vim
 .vim
+/datasets/
