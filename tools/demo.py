@@ -171,6 +171,7 @@ class Predictor(object):
         if output is None:
             return img
         output = output.cpu()
+        print("output: {}".format(output))
 
         bboxes = output[:, 0:4]
 
@@ -302,8 +303,12 @@ def main(exp, args):
         trt_file = None
         decoder = None
 
+    # predictor = Predictor(
+    #     model, exp, COCO_CLASSES, trt_file, decoder,
+    #     args.device, args.fp16, args.legacy,
+    # )
     predictor = Predictor(
-        model, exp, COCO_CLASSES, trt_file, decoder,
+        model, exp, ["cat", "dog", "horse", "person"], trt_file, decoder,
         args.device, args.fp16, args.legacy,
     )
     current_time = time.localtime()
