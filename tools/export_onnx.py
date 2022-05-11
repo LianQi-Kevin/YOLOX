@@ -52,6 +52,7 @@ def make_parser():
     parser.add_argument(
         "--decode_in_inference",
         action="store_true",
+        default=True,
         help="decode in inference or not"
     )
 
